@@ -11,25 +11,25 @@ namespace GuiTemp.Menu
 
         public override void OnApplicationStart() // add anythig you need to happen at start up
         {
+            if (!GuiInitialized && GameObject.Find("Main Camera") != null)
+            {
+                Notifications.Library.Initialize();
+                Main.LoadOnce();
+                GuiInitialized = true;
+            }
         }
 
         public override void OnUpdate() // executes everyframe
         {
             try
             {
-                if (!GuiInitialized && GameObject.Find("Main Camera") != null)
+                if (GameObject.Find("Main Camera") != null)
                 {
-                    Notifications.Library.Initialize();
-                    Main.LoadOnce();
+                    Main.UpdateGUI();
                     Main.ShowGui();
-                    GuiInitialized = true;
                     MelonLogger.Msg("Gui Initialized!");
                 }
                 Notifications.Library.Update();
-                if (GuiInitialized)
-                {
-                    Main.UpdateGUI();
-                }
             }
             catch (Exception ex) // melonloader/logs for the error and maybe send it to me or sum if gui aint working
             {

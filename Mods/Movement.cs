@@ -1,9 +1,11 @@
-﻿using Il2CppSystem.Numerics;
+﻿using easyInputs;
+using Il2CppSystem.Numerics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace GuiTemp.Mods
 {
@@ -21,5 +23,14 @@ namespace GuiTemp.Mods
 
             }
         }
+        public static void TriggerFly()
+        {
+            if (EasyInputs.GetTriggerButtonDown(EasyHand.RightHand) || EasyInputs.GetTriggerButtonDown(EasyHand.LeftHand))
+            {
+                GorillaTagger.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GorillaTagger.Instance.transform.position += GorillaTagger.Instance.headCollider.transform.forward * 10f * Time.deltaTime; // kinda slow but like just make it faster
+            }
         }
     }
+}
+

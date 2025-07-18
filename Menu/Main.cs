@@ -44,7 +44,7 @@ namespace GuiTemp.Menu
 
         // gui states
         public static string GuiState = "Main"; // selection you start on
-        public static string GuiColor = "purple"; // menu color
+        public static string GuiColor = "purple";
         public static bool GuiRGB = false; 
         public static float GuiRGBTimer = 0f; 
         public static MenuOption[] CurrentViewingMenu = null; // current menu
@@ -116,12 +116,12 @@ namespace GuiTemp.Menu
 
         public static void UpdateGUI()
         {
-            if (GUIOBJ2 != null && GUIOBJ2.activeSelf && MainCamera != null) // update the position and rotation
+            if (GUIOBJ2 != null && GUIOBJ2.activeSelf && MainCamera != null) 
             {
                 GUIOBJ2.transform.position = MainCamera.transform.position;
                 GUIOBJ2.transform.rotation = MainCamera.transform.rotation;
             }
-            UpdateMenuDisplay(); // make sure network info is uptodate maybe make slightly throttled doesnt need to be ran each frame but prob not that big of a deal
+            UpdateMenuDisplay();
             HandleMenuInput();
             if (CurrentViewingMenu != null)
             {
@@ -270,18 +270,18 @@ namespace GuiTemp.Menu
                 if (option.enabled && option.enableMethod != null)
                 {
                     option.enableMethod.Invoke();
-                    Notifications.Library.SendNotificationTagged("green", "ENABLED", "white", option.toolTip);
+                    Notifications.Library.SendNotificationTagged("green", "ENABLED", option.toolTip);
                 }
                 else if (!option.enabled && option.disableMethod != null)
                 {
                     option.disableMethod.Invoke();
-                    Notifications.Library.SendNotificationTagged("green", "[DISABLED]", "white", option.toolTip);
+                    Notifications.Library.SendNotificationTagged("green", "[DISABLED]", option.toolTip);
                 }
             }
             else if (option.method != null)
             {
                 option.method.Invoke();
-                Notifications.Library.SendNotificationTagged("green", "ACTIVATED", "white", option.toolTip);
+                Notifications.Library.SendNotificationTagged("green", "ACTIVATED", option.toolTip);
             }
 
             UpdateMenuDisplay();
