@@ -31,7 +31,7 @@ namespace GuiTemp.Menu
                 }
                 Notifications.Library.Update();
             }
-            catch (Exception ex) // melonloader/logs for the error and maybe send it to me or sum if gui aint working
+            catch (Exception ex) // melonloader/etc/logs for the error and maybe send it to me or sum if gui aint working
             {
                 MelonLogger.Error(ex);
             }
