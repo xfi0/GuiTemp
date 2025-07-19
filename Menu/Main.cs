@@ -19,8 +19,8 @@ namespace GuiTemp.Menu
     internal class Main
     {
         /* ALL COMMENTS ARE TO HELP YOU OR ME
-         * IF YOU USE THIS TEMP GIVE CREDITS OR ATLEAST MAKE IT CLEAR YOU USED IT
-         * IM NOT GONNA DOX YOU IF YOU DONT BUT STILL
+         * FEEL FREE TO JUST USE SOME CODE AS HELP
+         * CREDITS MAYBE IF YOU USE IDRC
          */
         // gui configuration
         private static string[] SectionNames;
@@ -110,7 +110,7 @@ namespace GuiTemp.Menu
             cRTEATEmENUS(); // create all the menus when the gui is loaded
             GuiState = "Main";
             CurrentViewingMenu = Sections["Main"];
-            UpdateMenuDisplay();
+            UpdateMenu();
         }
 
 
@@ -121,7 +121,7 @@ namespace GuiTemp.Menu
                 GUIOBJ2.transform.position = MainCamera.transform.position;
                 GUIOBJ2.transform.rotation = MainCamera.transform.rotation;
             }
-            UpdateMenuDisplay();
+            UpdateMenu();
             HandleMenuInput();
             if (CurrentViewingMenu != null)
             {
@@ -173,7 +173,7 @@ namespace GuiTemp.Menu
 
                 if (ThumbStick)
                 {
-                    bool CanScroll = Time.time - lastScrollTime > scrollCooldown; // make sure you dont scroll really fast and when you click a aoption it doesnt insta click off
+                    bool CanScroll = Time.time - lastScrollTime > scrollCooldown; // delay to selecting and scrolling
 
                     if (CanScroll && EasyInputs.GetTriggerButtonFloat(EasyHand.RightHand) > 0.5f)
                     {
@@ -201,7 +201,7 @@ namespace GuiTemp.Menu
         {
             int Pages = (totalOptions + OptionsPerPage - 1) / OptionsPerPage;
             int CurrtentOptions = Math.Min(OptionsPerPage, totalOptions - CurrentPage * OptionsPerPage);
-            if (isRightTrigger) //right trigger
+            if (isRightTrigger) 
             {
                 SelectedOptionIndex++;
 
@@ -219,7 +219,7 @@ namespace GuiTemp.Menu
                     }
                 }
             }
-            else // left trigger
+            else 
             {
                 SelectedOptionIndex--;
 
@@ -242,7 +242,7 @@ namespace GuiTemp.Menu
                 }
             }
 
-            UpdateMenuDisplay();
+            UpdateMenu();
             lastScrollTime = Time.time;
         }
 
@@ -284,7 +284,7 @@ namespace GuiTemp.Menu
                 Notifications.Library.SendNotificationTagged("green", "ACTIVATED", option.toolTip);
             }
 
-            UpdateMenuDisplay();
+            UpdateMenu();
         }
 
         public static void NavigateToMenu(string menuName) 
@@ -303,10 +303,10 @@ namespace GuiTemp.Menu
                 CurrentViewingMenu = null;
             }
 
-            UpdateMenuDisplay();
+            UpdateMenu();
         }
 
-        private static void UpdateMenuDisplay()
+        private static void UpdateMenu()
         {
             int Options = CurrentViewingMenu.Length;
             int Pages = (Options + OptionsPerPage - 1) / OptionsPerPage;
@@ -361,8 +361,10 @@ namespace GuiTemp.Menu
                        $"Room Name: {PhotonNetwork.CurrentRoom.name}\n" +
                        $"Player Count: {PhotonNetwork.CurrentRoom.PlayerCount}\n";
             }
-
+            else 
+            {
             return $"\n\n\n\nPing: 0\nRoom Name: null\nPlayer Count 0\n";
+            }
         }
 
         private static void cRTEATEmENUS()
@@ -373,7 +375,7 @@ namespace GuiTemp.Menu
                 SetMenuByIndex(i, menuOptions);
             }
 
-            UpdateMainMenuCounts();
+            UpdateMainMenu();
         }
 
         private static MenuOption[] ConvertButtonsToMenuOptions(ButtonInfo[] buttonInfos)
@@ -408,7 +410,7 @@ namespace GuiTemp.Menu
             }
         }
 
-        private static void UpdateMainMenuCounts() // put all the sections on the main menu
+        private static void UpdateMainMenu() // put all the sections on the main menu
         {
             if (Sections.ContainsKey("Main"))
             {
