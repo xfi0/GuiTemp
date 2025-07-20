@@ -1,9 +1,11 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using Photon.Voice.PUN.UtilityScripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,6 +117,35 @@ namespace GuiTemp.Classes
             }
             return null;
         }
-
+        public static VRRig GetRigFromUserID(string UserID)
+        {
+            foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+            {
+                if (vrrig.photonView.Owner.UserId == UserID)
+                {
+                    return vrrig;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return null;
+        }
+        public static string GetIdFromRig(VRRig vrrig)
+        {
+            foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+            {
+                if (player.UserId == vrrig.photonView.Owner.UserId)
+                {
+                    return player.UserId;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return null;
+        }
     }
 }

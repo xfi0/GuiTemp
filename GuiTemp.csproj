@@ -590,6 +590,7 @@
     <Compile Include="Mods\Movement.cs" />
     <Compile Include="Mods\Settings.cs" />
     <Compile Include="Notifications\Library.cs" />
+    <Compile Include="PluginInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

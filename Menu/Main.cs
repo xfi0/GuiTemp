@@ -313,7 +313,7 @@ namespace GuiTemp.Menu
             int Start = CurrentPage * OptionsPerPage;
             int End = Math.Min(Start + OptionsPerPage, Options);
 
-            string menuText = $"<color=#8B0000> Gui Temp : {GuiState} (Page {CurrentPage + 1}/{Pages})</color>\n\n";
+            string menuText = $"<color=#8B0000> {PluginInfo.NAME} : {GuiState} (Page {CurrentPage + 1}/{Pages})</color>\n\n";
 
             for (int i = Start; i < End; i++)
             {
@@ -363,7 +363,9 @@ namespace GuiTemp.Menu
             }
             else 
             {
-            return $"\n\n\n\nPing: 0\nRoom Name: null\nPlayer Count 0\n";
+            return $"\n\n\n\nPing: 0\n" +
+                   $"Room Name: null\n" +
+                   $"Player Count 0\n";
             }
         }
 
