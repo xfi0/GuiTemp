@@ -10,7 +10,7 @@ This GUI template is designed for use in modded copies of Gorilla Tag on Quest. 
 No, it's not required. I appreciate it, but at the end of the day I have bigger problems.
 
 **Do I need permission to use this?**  
-Nope! You’re welcome to use it in your projects, or even copy parts of the code to help with your own UI.
+Nope! You’re welcome to use it in your projects, or even copy parts of the code to help with your own GUI.
 
 ---
 
