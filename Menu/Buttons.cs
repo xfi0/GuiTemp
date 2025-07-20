@@ -33,7 +33,7 @@ namespace GuiTemp.Menu
             new ButtonInfo[]
             {
                 new ButtonInfo { buttonText = "Return to Main Menu", method = () => NavigateToMenu("Main"), isTogglable = false, toolTip = "Returned To Main" },
-                new ButtonInfo { buttonText = "Long Arms", enableMethod = () => Movement.LongArms(true), disableMethod = () => Movement.LongArms(false), toolTip = "Makes Your Arms Long", isTogglable = true }
+                new ButtonInfo { buttonText = "Long Arms", enableMethod = () => Movement.LongArms(true), disableMethod = () => Movement.LongArms(false), toolTip = "Makes Your Arms Long", isTogglable = true },
                 new ButtonInfo { buttonText = "Trigger Fly", enableMethod = () => Movement.LongArms(true), disableMethod = () => Movement.LongArms(false), toolTip = "Makes Your Arms Long", isTogglable = true }
             },
         };
