@@ -34,7 +34,7 @@ git clone https://github.com/xfi0/GuiTemp.git
 ```
 ### 2. Create a new branch 
 ```bash
-git checkout -b your-feature-name
+git checkout -b your-change-name-or-a-name-in-general
 ```
 ### 3. Test your changes
 Ensure GUI works with all features before pushing
