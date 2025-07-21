@@ -166,7 +166,7 @@ namespace GuiTemp.Menu
             {
 
                 bool ThumbStick = EasyInputs.GetThumbStickButtonDown(EasyHand.LeftHand) || EasyInputs.GetThumbStickButtonDown(EasyHand.RightHand);
-                bool Grip = EasyInputs.GetGripButtonDown(EasyHand.RightHand) || EasyInputs.GetGripButtonDown(EasyHand.LeftHand);
+                bool Grip = Loader.rightGrab || Loader.leftGrab;
 
                 int OPtions = CurrentViewingMenu.Length;
                 int Pages = (OPtions + OptionsPerPage - 1) / OptionsPerPage;
