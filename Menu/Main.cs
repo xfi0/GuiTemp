@@ -123,13 +123,16 @@ namespace GuiTemp.Menu
             }
             UpdateMenu();
             HandleMenuInput();
-            if (CurrentViewingMenu != null)
+            foreach (var section in Sections.Values)
             {
-                foreach (var option in CurrentViewingMenu)
+                if (section != null)
                 {
-                    if (option.isTogglable && option.enabled && option.method != null)
+                    foreach (var option in section)
                     {
-                        option.method.Invoke();
+                        if (option.isTogglable && option.enabled && option.method != null)
+                        {
+                            option.method.Invoke();
+                        }
                     }
                 }
             }
