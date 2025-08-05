@@ -31,6 +31,11 @@ namespace GuiTemp.Mods
                 GorillaTagger.Instance.transform.position += GorillaTagger.Instance.headCollider.transform.forward * 10f * Time.deltaTime; // kinda slow but like just make it faster
             }
         }
+        public static void SpeedBosst()
+        {
+            GorillaLocomotion.Player.Instance.maxJumpSpeed = 7.5f;
+            GorillaLocomotion.Player.Instance.jumpMultiplier = 5f;
+        }
     }
 }
 

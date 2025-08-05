@@ -34,7 +34,8 @@ namespace GuiTemp.Menu
             {
                 new ButtonInfo { buttonText = "Return to Main Menu", method = () => NavigateToMenu("Main"), isTogglable = false, toolTip = "Returned To Main" },
                 new ButtonInfo { buttonText = "Long Arms", enableMethod = () => Movement.LongArms(true), disableMethod = () => Movement.LongArms(false), toolTip = "Makes Your Arms Long", isTogglable = true },
-                new ButtonInfo { buttonText = "Trigger Fly", method = () => Movement.TriggerFly(), toolTip = "Makes Your Arms Long", isTogglable = true }
+                new ButtonInfo { buttonText = "Trigger Fly", method = () => Movement.TriggerFly(), toolTip = "Makes Your Arms Long", isTogglable = true },
+                new ButtonInfo { buttonText = "Dih Boost", method = () => Movement.SpeedBosst(), toolTip = "Makes You Fast", isTogglable = true }
             },
         };
     }
